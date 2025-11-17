@@ -48,7 +48,7 @@ ullage = 0.05
 id_tank = 98e-3 # m
 l_tank = 600e-3 # m
 A_tank = np.pi * id_tank ** 2 / 4
-v_tank = l_tank*id_tank**2*np.pi/4 # m3
+v_tank = l_tank*A_tank # m3
 LD_tank = l_tank/id_tank
 
 # Propellant initial state
@@ -71,6 +71,7 @@ v_f_i = v_tank - v_ox_v - v_ox_i
 
 m_ox_i = rho_ox*v_ox_i
 m_f_i = rho_f*v_f_i
+print(m_ox_i/m_f_i)
 
 # Injector
 inj_ox_A = 65e-6 # m2
@@ -175,10 +176,6 @@ for i in range(n-1):
     # Update nitrous supply density
     v_ox = v_tank - v_f
     rho_ox = m_oxs[i]/v_ox
-
-    # Update propellant state
-    ox = ox_fluid.with_state(Input.temperature(T_init),Input.density(rho_ox))
-    fuel = fuel_fluid.with_state(Input.temperature(T_init),Input.pressure(ox.pressure))
 
     p_s[i+1] = ox.pressure
 
