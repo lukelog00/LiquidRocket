@@ -46,7 +46,7 @@ OF_targ = 3
 # Propellant tank internal dimensions
 ullage = 0.05
 id_tank = 72.2e-3 # m
-l_tank = 300e-3 # m
+l_tank = 210e-3 # m
 A_tank = np.pi * id_tank ** 2 / 4
 v_tank = l_tank*id_tank**2*np.pi/4 # m3
 LD_tank = l_tank/id_tank
@@ -67,7 +67,7 @@ inj_f_A = np.pi * inj_f_d ** 2 / 4 * inj_f_n # m2
 inj_f_Cd = 0.7 #
 
 # Nozzle
-d_t = 25e-3 # m
+d_t = 30e-3 # m
 At = np.pi * d_t ** 2 / 4 #100e-6 # m2
 AeAt = 3.5
 
